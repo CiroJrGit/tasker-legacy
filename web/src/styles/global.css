@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer utilities {
+   * {
+    @apply transition-colors ease-in-out duration-100
+  }
+
+  svg, path, g, circle {
+    @apply transition-colors ease-in-out duration-10
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    padding-top: 16px;
+    background-color: #303338; /* Cor da alça da barra de rolagem */
+    /* border-radius: 4px; Raio da alça da barra de rolagem */
+  }
+
+  .validate[data-invalid] {
+    @apply border dark:border-red-500 border-red-600
+  }
+}
