@@ -6,7 +6,7 @@ import { TaskList } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import Edit from '@/components/Edit'
+import Edit from '@/components/Popover/Edit'
 import NewTask from './components/NewTask'
 import Task from './components/Tasks'
 
@@ -63,7 +63,7 @@ const TaskListPage = () => {
                   focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
                 "
               >
-                <IconEllipsis width="20" height="20" />
+                <IconEllipsis width="20" height="20" color="dark:text-gray-400 text-gray-300" />
               </Popover.Trigger>
 
               <Popover.Portal>

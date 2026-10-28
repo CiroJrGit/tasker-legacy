@@ -3,7 +3,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { motion } from 'framer-motion'
 
 import * as Form from '@radix-ui/react-form'
-import Button from '@/components/Button'
+import MainButton from '@/components/Button/MainButton'
 
 import IconSpinner from '@/assets/icons/IconSpinner'
 
@@ -28,7 +28,7 @@ const FormSignUp = () => {
   return (
     <>
       <Form.Root onSubmit={handleSubmit} className="flex flex-col gap-12">
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-col gap-[1.6rem]">
           <Form.Field name="name">
             <div className="flex flex-col gap-2">
               <Form.Label className="flex justify-between w-full">
@@ -93,7 +93,7 @@ const FormSignUp = () => {
           </Form.Field>
 
           <Form.Field name="password">
-            <div className="flex flex-col gap-2 mb-8">
+            <div className="flex flex-col gap-2">
               <Form.Label className="flex justify-between w-full">
                 <span className="dark:text-gray-200 text-sm font-medium">Senha</span>
 
@@ -129,10 +129,10 @@ const FormSignUp = () => {
         </div>
 
         <Form.Submit asChild>
-          <Button
+          <MainButton
             variant="primary"
             size="lg"
-            label={isLoadingAuth ? <IconSpinner width="32" height="32" /> : 'Criar conta'}
+            label={isLoadingAuth ? <IconSpinner width="32" height="32" color="text-gray-50" /> : 'Criar conta'}
           />
         </Form.Submit>
       </Form.Root>

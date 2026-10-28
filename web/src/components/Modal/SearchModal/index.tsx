@@ -3,15 +3,24 @@ import { useEffect, useState } from 'react'
 import { useTaskLists } from '@/hooks/useTaskLists'
 import { useNotes } from '@/hooks/useNotes'
 import { NavLink } from 'react-router-dom'
+<<<<<<< HEAD
 import clsx from 'clsx'
+=======
+>>>>>>> import-web-develop
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Separator from '@radix-ui/react-separator'
 import BaseModal from '../BaseModal'
+<<<<<<< HEAD
 
 import IconSearch from '@/assets/icons/IconSearch'
 import IconTrash from '@/assets/icons/IconTrash'
 import IconEdit from '@/assets/icons/IconEdit'
+=======
+import PageItem from '@/components/Button/PageItem'
+
+import IconSearch from '@/assets/icons/IconSearch'
+>>>>>>> import-web-develop
 
 const SearchModal = () => {
   const { taskLists, loadTaskLists, handleEditTaskList } = useTaskLists()
@@ -27,23 +36,49 @@ const SearchModal = () => {
   const notesFiltereds = notes.filter((note) =>
     note.title.toLowerCase().includes(lowerSearch.trim()),
   )
+<<<<<<< HEAD
+=======
+  
+  // TO-DO: Refatorar actionsButtons PageItem
+  const handleOnActionDelete = (
+    e: any,
+    id: string,
+    title: string,
+    color: string,
+    deleted: boolean,
+    type: 'tasklist' | 'note',
+  ) => {
+    e.stopPropagation()
+    e.preventDefault()
+
+    if (type === 'tasklist') {
+      handleEditTaskList(id, title, color, deleted)
+    } else if (type === 'note') {
+      handleEditNote(id, title, color, deleted)
+    }
+  }
+>>>>>>> import-web-develop
 
   useEffect(() => {
     loadTaskLists()
     loadNotes()
   }, [])
 
+<<<<<<< HEAD
   function handlePropagationLink(e: any) {
     e.stopPropagation()
     e.preventDefault()
   }
 
+=======
+>>>>>>> import-web-develop
   return (
     <BaseModal>
       <div className="min-w-[568px] h-[652px]">
         <div className="flex flex-col gap-7">
           <Dialog.Title className="relative flex flex-col gap-3">
             <div className="px-4">
+<<<<<<< HEAD
               <div className="absolute top-0.5 left-3 flex justify-center items-center w-6 pt-px">
                 <IconSearch
                   width="16"
@@ -54,6 +89,14 @@ const SearchModal = () => {
               <input
                 className="
                   w-full h-6 pr-5 pl-7 rounded-md dark:text-gray-50 text-gray-500
+=======
+              <div className="absolute top-0.5 left-3 flex justify-center items-center w-6 pt-0.5">
+                <IconSearch width="16" height="16" color="dark:text-gray-300 text-white-300" />
+              </div>
+              <input
+                className="
+                  w-full h-6 pr-5 pl-7 font-title rounded-md dark:text-gray-50 text-gray-500 placeholder:font-medium
+>>>>>>> import-web-develop
                   dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-900 bg-white-900 focus:outline-none 
                 "
                 type="text"
@@ -73,16 +116,28 @@ const SearchModal = () => {
           <div className="flex flex-col gap-7 px-1.5">
             {taskLists.length !== 0 && (
               <div className="flex flex-col gap-3">
+<<<<<<< HEAD
                 <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
+=======
+                <span className="px-2 font-title font-semibold text-xs dark:text-gray-300 text-white-400">
+>>>>>>> import-web-develop
                   Listas
                 </span>
 
                 <div className="flex flex-col gap-1 px-px">
+<<<<<<< HEAD
                   {tasklistsFiltereds.filter((list) => list.deleted === false)
                     .length === 0 && (
                     <span className="text-sm dark:text-gray-300 text-white-400 px-2">
                       Nenhuma lista encontrada.
                     </span>
+=======
+                  {tasklistsFiltereds
+                    .filter((list) => list.deleted === false).length === 0 && (
+                      <span className="text-sm dark:text-gray-300 text-white-400 px-2">
+                        Nenhuma lista encontrada.
+                      </span>
+>>>>>>> import-web-develop
                   )}
 
                   {tasklistsFiltereds
@@ -91,6 +146,7 @@ const SearchModal = () => {
                       <NavLink
                         key={list.id}
                         to={`/tasklists/${list.id}`}
+<<<<<<< HEAD
                         className="relative rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                       >
                         <Dialog.Close asChild>
@@ -147,6 +203,20 @@ const SearchModal = () => {
                             <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
                           </button>
                         </div>
+=======
+                        className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
+                      >
+                        <Dialog.Close asChild>
+                          <PageItem
+                            variant='active'
+                            color={list.color}
+                            title={list.title}
+                            onPrimaryAction={() => console.log('Editar ' + list.title)}
+                            onSecondaryAction={(e) => handleOnActionDelete(e, list.id, list.title, list.color, true, 'tasklist')}
+                            showActions
+                          />
+                        </Dialog.Close>
+>>>>>>> import-web-develop
                       </NavLink>
                     ))}
                 </div>
@@ -155,7 +225,11 @@ const SearchModal = () => {
 
             {notes.length !== 0 && (
               <div className="flex flex-col gap-3">
+<<<<<<< HEAD
                 <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
+=======
+                <span className="px-2 font-title font-semibold text-xs dark:text-gray-300 text-white-400">
+>>>>>>> import-web-develop
                   Notas
                 </span>
 
@@ -173,6 +247,7 @@ const SearchModal = () => {
                       <NavLink
                         key={index}
                         to={`/notes/${note.id}`}
+<<<<<<< HEAD
                         className="relative rounded-m focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                       >
                         <Dialog.Close asChild>
@@ -229,6 +304,20 @@ const SearchModal = () => {
                             <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
                           </button>
                         </div>
+=======
+                        className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
+                      >
+                        <Dialog.Close asChild>
+                          <PageItem
+                            variant='active'
+                            color={note.color}
+                            title={note.title}
+                            onPrimaryAction={() => console.log('Editar ' + note.title)}
+                            onSecondaryAction={(e) => handleOnActionDelete(e, note.id, note.title, note.color, true, 'note')}
+                            showActions
+                          />
+                        </Dialog.Close>
+>>>>>>> import-web-develop
                       </NavLink>
                     ))}
                 </div>

@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
-
 import * as Popover from '@radix-ui/react-popover'
 import UserCard from '../UserCard'
-import MenuButton from '../MenuButton'
-import AccountPopover from '../AccountPopover'
+import MenuItem from '../Button/MenuItem'
+import AccountPopover from '../Popover/AccountPopover'
 import SearchModal from '../Modal/SearchModal'
 import SettingsModal from '../Modal/SettingsModal'
-import Trash from '../Trash'
+import Trash from '../Popover/Trash'
 
 import IconSearch from '@/assets/icons/IconSearch'
 import IconSettings from '@/assets/icons/IconSettings'
@@ -15,7 +14,7 @@ import IconCaret from '@/assets/icons/IconCaret'
 
 const Menu = () => {
   return (
-    <nav className="flex flex-col gap-3">
+    <nav className="flex flex-col gap-2">
       {/* TO-DO: AccountButton? */}
       <Popover.Root>
         <Popover.Trigger
@@ -25,36 +24,42 @@ const Menu = () => {
           "
         >
           <UserCard variant="sm" />
-          <IconCaret width="11" height="11" color="dark:stroke-gray-400 stroke-white-300" />
+          <IconCaret width="11" height="11" color="dark:text-gray-400 text-white-300" />
         </Popover.Trigger>
 
         <AccountPopover />
       </Popover.Root>
       
-      <div className="flex flex-col gap-1">
-        <MenuButton
-          icon={<IconSearch width="16" height="16" color="dark:stroke-gray-100 stroke-gray-300" />}
+      <div className="flex flex-col gap-0.75">
+        <MenuItem
+          as='dialog-trigger'
+          variant='menu'
+          icon={<IconSearch width="16" height="16" color="dark:text-gray-100 text-gray-300" />}
           label="Pesquisar"
-          triggerType="dialog"
+          weight='medium'
         >
           <SearchModal />
-        </MenuButton>
+        </MenuItem>
 
-        <MenuButton
-          icon={<IconSettings width="18" height="18" />}
+        <MenuItem
+          as='dialog-trigger'
+          variant='menu'
+          icon={<IconSettings width="18" height="18" color="dark:text-gray-100 text-gray-300" />}
           label="Configurações"
-          triggerType="dialog"
+          weight='medium'
         >
           <SettingsModal />
-        </MenuButton>
+        </MenuItem>
 
-        <MenuButton
-          icon={<IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />}
+        <MenuItem
+          as='popover-trigger'
+          variant='menu'
+          icon={<IconTrash width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
           label="Lixeira"
-          triggerType="popover"
+          weight='medium'
         >
           <Trash />
-        </MenuButton>
+        </MenuItem>
       </div>
     </nav>
   )

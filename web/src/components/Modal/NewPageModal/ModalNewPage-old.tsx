@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import * as Popover from '@radix-ui/react-popover'
-import Button from '@/components/Button'
+import MainButton from '@/components/Button/MainButton'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
 import IconNote from '@/assets/icons/IconNote'
@@ -16,7 +16,7 @@ import IconCheck from '@/assets/icons/IconCheck'
 
 interface ModalNewPageProps {
   // list?: TaskListProps
-  // type?: string
+  // type?: 'new' | 'edit'
   page?: string
 }
 
@@ -53,7 +53,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               "
               htmlFor="r1"
             >
-              <IconCheckbox width="18" height="18" color="dark:stroke-gray-100/60 stroke-gray-300/75" />
+              <IconCheckbox width="18" height="18" color="dark:text-gray-100/60 text-gray-300/75" />
               <span className="text-sm font-medium duration-10">Lista de tarefas</span>
             </label>
           </div>
@@ -68,7 +68,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               "
               htmlFor="r2"
             >
-              <IconNote width="19" height="19" color="dark:stroke-gray-100/60 stroke-gray-300/80" />
+              <IconNote width="19" height="19" color="dark:text-gray-100/60 text-gray-300/80" />
               <span className="text-sm font-medium duration-10">Página de anotações</span>
             </label>
           </div>
@@ -93,7 +93,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                   'bg-main-green': selectedColor === '#29EE9B',
                 })}
               />
-              <IconCaret width="11" height="11" color="dark:stroke-gray-300 stroke-white-300" />
+              <IconCaret width="11" height="11" color="dark:text-gray-300 text-white-300" />
             </Popover.Trigger>
             <Popover.Portal>
               <Popover.Content className="focus:outline-none">
@@ -118,7 +118,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                       onClick={() => setSelectedColor(color)}
                     >
                       {color === selectedColor && (
-                        <IconCheck width="14" height="14" color="stroke-gray-50" stroke="2.2" />
+                        <IconCheck width="14" height="14" color="text-gray-50" stroke="2.2" />
                       )}
                     </button>
                   ))}
@@ -142,7 +142,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
 
       <div className="flex justify-end gap-3">
         <Dialog.Close asChild>
-          <Button
+          <MainButton
             variant="primary"
             size="md"
             label="Criar"
@@ -156,7 +156,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
         </Dialog.Close>
 
         <Dialog.Close asChild>
-          <Button variant="secondary" size="md" label="Cancelar" />
+          <MainButton variant="secondary" size="md" label="Cancelar" />
         </Dialog.Close>
       </div>
     </div>

@@ -11,8 +11,15 @@ export default {
         xl: '1440px',
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        int: ['Inter', 'sans-serif'],
+        sans: [
+          '"Segoe UI Variable Display"',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+        title: ['Montserrat', 'sans-serif'],
       },
       fontSize: {
         '2xs': '0.8125rem',
@@ -28,6 +35,10 @@ export default {
         10.5: '2.625rem',
         18: '4.5rem',
         20.5: '5.375rem',
+      },
+      borderRadius: {
+        '2sm': '0.313rem',
+        '1xl': '0.875rem',
       },
       ringWidth: {
         1.5: '1.5px',

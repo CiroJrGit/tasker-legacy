@@ -1,6 +1,6 @@
 import Menu from '../Menu'
-import MenuButton from '../MenuButton'
-import NavList from '../NavList'
+import MenuItem from '../Button/MenuItem'
+import PageList from '../PageList'
 import NewPageModal from '../Modal/NewPageModal'
 
 import IconPlusRounded from '@/assets/icons/IconPlusRounded'
@@ -10,11 +10,18 @@ const Sidebar = () => {
     <div className="grid grid-rows-[auto_1fr_auto] gap-11 w-full min-h-full px-3 py-6">
       <Menu />
 
-      <NavList />
+      <PageList />
 
-      <MenuButton icon={<IconPlusRounded width="17" height="17" />} label="Nova página" triggerType="dialog">
+      <MenuItem
+        as="dialog-trigger"
+        variant="menu"
+        icon={<IconPlusRounded width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
+        label="Nova página"
+        size="lg"
+        weight="medium"
+      >
         <NewPageModal />
-      </MenuButton>
+      </MenuItem>
     </div>
   )
 }
