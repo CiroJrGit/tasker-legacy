@@ -1,0 +1,30 @@
+{
+  "name": "tasker-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint src --ext .ts --fix",
+    "prisma": "npx prisma generate --schema prisma/schema.sqlite.prisma & npx prisma generate --schema prisma/schema.mongodb.prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.1.0",
+    "@types/node": "^22.13.1",
+    "eslint": "^8.45.0",
+    "prisma": "^6.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@fastify/jwt": "^7.2.0",
+    "@prisma/client": "^5.10.2",
+    "cloudinary": "^2.5.1",
+    "fastify": "^4.20.0",
+    "zod": "^3.21.4"
+  }
+}

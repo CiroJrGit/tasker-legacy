@@ -1,0 +1,16 @@
+# Logs
+node_modules
+
+# Editor directories and files
+dev.db
+prisma/generated/
+prisma/migrations/
+prisma/dev.db
+
+# Envs
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*
